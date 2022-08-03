@@ -5,8 +5,18 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public Action<Vector3Int> OnLeftMouseDown, OnLeftMouseHold;
-    public Action OnLeftMouseUp;
+    public Action<Vector3Int> OnLeftMouseDown, OnLeftMouseHold, OnLeftMouseUp;
+    private bool isLeftMouseButtonDown;
+
+    public bool IsLeftMouseButtonDown
+    {
+        get { return isLeftMouseButtonDown; }
+    }
+
+    public bool IsLeftMouseButtonUp
+    {
+        get { return !isLeftMouseButtonDown; }
+    }
 
     [SerializeField]
     Camera mainCamera;
@@ -21,7 +31,7 @@ public class InputManager : MonoBehaviour
     private Vector3Int? RaycastGround() {
         RaycastHit hit;
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        Boolean isCollide = Physics.Raycast(ray, out hit, Mathf.Infinity, groundMask);
+        bool isCollide = Physics.Raycast(ray, out hit, Mathf.Infinity, groundMask);
         if (isCollide) {
             Vector3Int hitPosition = Vector3Int.RoundToInt(hit.point);
             return hitPosition;
@@ -43,7 +53,7 @@ public class InputManager : MonoBehaviour
     }
 
     private void CheckLeftMouseButtonHold() {
-        Boolean isLeftMouseButtonDown = Input.GetMouseButton(0);
+        isLeftMouseButtonDown = Input.GetMouseButton(0);
 
         if (isLeftMouseButtonDown) {
             Vector3Int? hitPosition = RaycastGround();
@@ -54,14 +64,19 @@ public class InputManager : MonoBehaviour
     }
 
     private void CheckLeftMouseButtonUp() {
-        Boolean isLeftMouseUp = Input.GetMouseButtonUp(0);
-        if (isLeftMouseUp) {
-            OnLeftMouseUp?.Invoke();
+        bool isLeftMouseButtonUp = Input.GetMouseButtonUp(0);
+        isLeftMouseButtonDown = !isLeftMouseButtonUp;
+        if (isLeftMouseButtonUp) {
+            Vector3Int? hitPosition = RaycastGround();
+            if (hitPosition is Vector3Int pos)
+            {
+                OnLeftMouseUp?.Invoke(pos);
+            }
         }
     }
 
     private void CheckLeftMouseButtonDown() {
-        Boolean isLeftMouseButtonDown = Input.GetMouseButtonDown(0);
+        isLeftMouseButtonDown = Input.GetMouseButtonDown(0);
         if (isLeftMouseButtonDown) {
             Vector3Int? hitPosition = RaycastGround();
             if (hitPosition is Vector3Int pos) {

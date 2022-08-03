@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,16 +8,33 @@ public class GameManager : MonoBehaviour
 
     public CameraMovement cameraMovement;
     public InputManager inputManager;
-    public PlacementManager placementManager;
+    public RoadBuilder roadBuilder;
 
     void Start() {
-        inputManager.OnLeftMouseDown += HandleMouseClick;
+        inputManager.OnLeftMouseDown += BeginRoadBuild;
+        inputManager.OnLeftMouseUp += FinalizeRoadBuild;
+        inputManager.OnLeftMouseHold += Callback.DebounceWhen<Vector3Int>(AdjustRoadDestination, ArePositionsDifferent);
     }
 
-    private void HandleMouseClick(Vector3Int position)  {
-        if (placementManager.IsLegal(position, CellType.Road)) {
-            placementManager.Build(position, CellType.Road);
-        }
+    private void AdjustRoadDestination(Vector3Int position)
+    {
+        roadBuilder.AppendGhostRoad(position);
+    }
+
+    private void BeginRoadBuild(Vector3Int position)  {
+        // TODO: handle clicking off-map
+        roadBuilder.BeginBuild(position);
+    }
+
+    private bool ArePositionsDifferent(Vector3Int a, Vector3Int b)
+    {
+        return a !s= b;
+    }
+
+    private void FinalizeRoadBuild(Vector3Int position)
+    {
+        // TODO: handle clicking off-map
+        roadBuilder.FinalizeBuild(position);
     }
 
     // Update is called once per frame

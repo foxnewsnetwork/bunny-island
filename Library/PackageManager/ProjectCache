@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637941884891789806
-    m_Hash: 1879507409
+      ticks: 637949916849080761
+    m_Hash: 2195651425
   m_LockFileStatus:
     m_FilePath: C:/Users/3DPD/Bunny Island/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637941885598465490
-    m_Hash: 1152500608
+      ticks: 637949916849180477
+    m_Hash: 3778984717
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -211,7 +211,7 @@ m_ResolvedPackages:
     version: default
   resolvedDependencies:
   - name: com.unity.ide.visualstudio
-    version: 2.0.15
+    version: 2.0.16
   - name: com.unity.test-framework
     version: 1.1.31
   - name: com.unity.ext.nunit
@@ -337,12 +337,12 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 3.0.14
     nextVersion: 
-- packageId: com.unity.ide.visualstudio@2.0.15
+- packageId: com.unity.ide.visualstudio@2.0.16
   testable: 0
   isDirectDependency: 1
-  version: 2.0.15
+  version: 2.0.16
   source: 1
-  resolvedPath: C:\Users\3DPD\Bunny Island\Library\PackageCache\com.unity.ide.visualstudio@2.0.15
+  resolvedPath: C:\Users\3DPD\Bunny Island\Library\PackageCache\com.unity.ide.visualstudio@2.0.16
   assetPath: Packages/com.unity.ide.visualstudio
   name: com.unity.ide.visualstudio
   displayName: Visual Studio Editor
@@ -404,13 +404,13 @@ m_ResolvedPackages:
     capabilities: 7
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 637841884840000000
+  datePublishedTicks: 637914298680000000
   documentationUrl: 
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
-    revision: ca1ece42f5a2c5484ba15a15bb975ccc1f6a1a3c
+    revision: c01855ef6461b821ab0226135e96a4ee86de96be
     path: 
   unityLifecycle:
     version: 2.0.15
@@ -2915,6 +2915,18 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 0.4.0-preview.3
+    - 0.4.0-preview.5
+    - 0.4.0-preview.6
+    - 0.5.0-preview.1
+    - 0.6.0-preview.1
+    - 0.7.0-preview.4
+    - 1.0.0
+    - 1.0.1
+    - 1.0.2
+    - 1.0.3
+    - 1.1.0-pre.2
+    - 1.1.0
     - 1.1.1
     compatible:
     - 1.1.1
@@ -2931,7 +2943,7 @@ m_ResolvedPackages:
     capabilities: 7
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 0
+  datePublishedTicks: 637705021060000000
   documentationUrl: 
   hasRepository: 1
   repository:
@@ -2965,9 +2977,42 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 0.2.0-preview
+    - 0.2.1-preview
+    - 0.2.2-preview
+    - 0.2.3-preview
+    - 0.3.0-preview
+    - 0.3.1-preview
+    - 0.4.0-preview
+    - 0.4.1-preview
+    - 0.4.2-preview
+    - 0.4.3-preview
+    - 1.0.0-pre.1
+    - 1.0.0-pre.2
+    - 1.0.0-pre.3
+    - 1.0.0-pre.4
+    - 1.0.0
     - 1.0.1
+    - 1.1.0
+    - 1.1.1
+    - 1.2.0-exp.1
+    - 1.2.0-exp.2
+    - 1.2.0-exp.3
+    - 1.2.0-exp.4
+    - 1.2.0-exp.5
+    - 1.2.0-exp.6
+    - 1.2.0-exp.7
     compatible:
     - 1.0.1
+    - 1.1.0
+    - 1.1.1
+    - 1.2.0-exp.1
+    - 1.2.0-exp.2
+    - 1.2.0-exp.3
+    - 1.2.0-exp.4
+    - 1.2.0-exp.5
+    - 1.2.0-exp.6
+    - 1.2.0-exp.7
     verified: 1.0.1
   dependencies:
   - name: com.unity.test-framework
@@ -2999,7 +3044,7 @@ m_ResolvedPackages:
     capabilities: 7
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 0
+  datePublishedTicks: 637594767130000000
   documentationUrl: 
   hasRepository: 1
   repository:

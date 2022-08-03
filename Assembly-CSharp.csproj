@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.15</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.16</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2021.3.5f1</UnityVersion>
@@ -55,12 +55,16 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GridSearch.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\PlacementManager.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\AudioPlayer.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Grid.cs" />
-    <Compile Include="Assets\Scripts\PlacementManager.cs" />
     <Compile Include="Assets\Scripts\RoadBuilder.cs" />
+    <Compile Include="Assets\Scripts\RoadFixer.cs" />
+    <Compile Include="Assets\Scripts\Grid.cs" />
+    <Compile Include="Assets\Scripts\StructureModel.cs" />
+    <Compile Include="Assets\Scripts\BuildingCellMap.cs" />
+    <Compile Include="Assets\Scripts\Callback.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

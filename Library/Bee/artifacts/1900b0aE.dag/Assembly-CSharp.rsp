@@ -357,6 +357,8 @@
 "Assets/Scripts/InputManager.cs"
 "Assets/Scripts/PlacementManager.cs"
 "Assets/Scripts/RoadBuilder.cs"
+"Assets/Scripts/RoadFixer.cs"
+"Assets/Scripts/StructureModel.cs"
 -langversion:9.0
 
 /deterministic
