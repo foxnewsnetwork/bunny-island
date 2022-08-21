@@ -6,7 +6,8 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public Action<Vector3Int> OnLeftMouseDown, OnLeftMouseHold, OnLeftMouseUp;
-    private bool isLeftMouseButtonDown;
+    public Action OnShiftKeyDown, OnShiftKeyUp;
+    private bool isLeftMouseButtonDown, isShiftKeyDown;
 
     public bool IsLeftMouseButtonDown
     {
@@ -44,12 +45,40 @@ public class InputManager : MonoBehaviour
         CheckLeftMouseButtonUp();
         CheckLeftMouseButtonHold();
         CheckLeftMouseButtonDown();
+        CheckShiftKeyDown();
+        CheckShiftKeyUp();
     }
 
     private void CheckDirectionInput() {
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
         cameraMovementVector = new Vector2(hor, ver);
+    }
+
+    private void CheckShiftKeyDown()
+    {
+        if (isShiftKeyDown)
+        {
+            return;
+        }
+        isShiftKeyDown = Input.GetButtonDown("Fire1");
+        if  (isShiftKeyDown)
+        {
+            OnShiftKeyDown?.Invoke();
+        }
+    }
+
+    private void CheckShiftKeyUp()
+    {
+        if  (!isShiftKeyDown)
+        {
+            return;
+        }
+        isShiftKeyDown = Input.GetButtonDown("Fire1");
+        if (!isShiftKeyDown)
+        {
+            OnShiftKeyUp?.Invoke();
+        }
     }
 
     private void CheckLeftMouseButtonHold() {

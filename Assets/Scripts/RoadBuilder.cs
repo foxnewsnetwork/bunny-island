@@ -10,7 +10,7 @@ public class RoadBuilder : MonoBehaviour
     public RoadFixer roadFixer;
 
     private void Start() {
-        roadFixer = GetComponents<RoadFixer>();
+        roadFixer = GetComponents<RoadFixer>()[0];
     }
 
     internal void AppendGhostRoad(Vector3Int position)
@@ -34,8 +34,14 @@ public class RoadBuilder : MonoBehaviour
 
     
     private void FixRoadPrefabs(List<Vector3Int> tempRoadPositions) {
+        List<Vector3Int> allPointsToCheck = new List<Vector3Int>();
         foreach (var tempPos in tempRoadPositions) {
-            roadFixer.FixRoadAtPosition(placementManager, tempPos);
+            allPointsToCheck.Add(tempPos);
+            List<Vector3Int> neighbors = placementManager.GetNeighborsOfType(tempPos, CellType.Road);
+            allPointsToCheck.AddRange(neighbors);
+        }
+        foreach  (var posToFix in  allPointsToCheck) {
+            roadFixer.FixRoadAtPosition(placementManager, posToFix);
         }
     }
 

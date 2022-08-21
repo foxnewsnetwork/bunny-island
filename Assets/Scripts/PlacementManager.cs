@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
@@ -21,8 +22,13 @@ public class PlacementManager : MonoBehaviour
         grid = new Grid(width, height);
     }
 
-    internal CellType[] GetNeighborTypesAtPosition(Vector3Int pos) {
+    internal CellType[] GetNeighborTypesAtPosition(Vector3Int pos)  {
         return grid.GetAllAdjacentCellTypes(pos.x, pos.z);
+    }
+
+    internal List<Vector3Int> GetNeighborsOfType(Vector3Int pos, CellType type) {
+         List<Point> neighbors = grid.GetAdjacentCellsOfType(pos.x, pos.z, type);
+        return neighbors.Select(n => new Vector3Int() { x = n.X, y=0, z=n.Y }).ToList();
     }
 
     public bool IsLegal(Vector3Int position, CellType cellType) {
